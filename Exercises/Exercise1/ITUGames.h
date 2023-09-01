@@ -323,9 +323,8 @@ namespace ITUGames
 #endif
 
 		inline void InitScreenForRendering() {
-			/*int h = GetTerminalHeight();
-			printf("\033[%dT\033[30T", h);*/
 			ClearScreen();
+			GotoTop();
 
 #ifdef _WIN32
 			if (!SetConsoleCtrlHandler(CleanupHandler, TRUE))

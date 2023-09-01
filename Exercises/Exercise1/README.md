@@ -32,14 +32,23 @@ Install Unix-system emulator (shipped with windows, should work out of the box)
 
 It the command finishes without any errors, you are good to go.
 
-**Quick note:** some of the wsl commands may take a few seconds the first time you run them while Windows is booting Unix and moving files left and right under the hood, but follow ups should be very quick.
+**Notable bits:**
+- some of the wsl commands may take a few seconds the first time you run them while Windows is booting Unix and moving files left and right under the hood
+- when running a command prefixed with `wsl`, be careful about the paths. The separator must be `/` (but your terminal may automatically insert the wrong one if you autocomplete a path)
 
 ### Install C++ compiler
 ```bash
 [wsl] apt-get update
 [wsl] apt-get install build-essentials gdb
       cd Exercise1.1
-[wsl] g++ main.cpp
+[wsl] g++ -std=c++11 main.cpp
+[wsl] ./a.out
+```
+
+### Running the exercises
+C++ gets periodically updated, so for this class we picked the C++11 standard, which is a good compromise between support and modern features for our purposes. Most installations of the g++, the compiler we are using, will use it as default, but to be all on the same page we will specify it explicitely when running the compilation process.
+```bash
+[wsl] g++ -std=c++11 main.cpp
 [wsl] ./a.out
 ```
 
