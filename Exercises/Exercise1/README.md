@@ -20,8 +20,9 @@ Some of the console commands will be prefixed by `[wsl]`, that means that if you
 ```bash
 [wsl] apt-get install SuperCoolFeature  # downloads and install a package 
 ```
-- on Unix/Mac: `apt-get install SuperCoolFeature`
-- on Windows: `wsl apt-get install SuperCoolFeature`
+- on Unix: `apt-get install <package-name>`
+- on Windows: `wsl apt-get install <package-name>`
+- on Mac: `brew install <package-name>`
 
 
 ### Extra steps for Windows
@@ -39,7 +40,7 @@ It the command finishes without any errors, you are good to go.
 ### Install C++ compiler
 ```bash
 [wsl] apt-get update
-[wsl] apt-get install build-essentials gdb
+[wsl] apt-get install build-essential gdb
       cd Exercise1.1
 [wsl] g++ -std=c++11 main.cpp
 [wsl] ./a.out
