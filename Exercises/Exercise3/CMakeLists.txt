@@ -1,4 +1,4 @@
-file(GLOB_RECURSE Sources ".h" ".hpp") # will get all the .cpp and all the .h files in directory and subdirectories
+file(GLOB_RECURSE Sources "*.h" "*.cpp") # will get all the .cpp and all the .h files in directory and subdirectories
 add_executable(<Project_Name> ${Sources})
 
 target_link_libraries(<Project_Name> ${all_libs})
