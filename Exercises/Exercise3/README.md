@@ -5,7 +5,9 @@
 1. Install [CMake](https://cmake.org/)
 1. Clone the [SimpleRenderEngineProject repository](https://github.com/mortennobel/SimpleRenderEngineProject) (follow the instruction on its README carefully , there are a few small but necessary extra steps)
 1. Create the project
-	1. run CMake configuration step, targeting Win32
+	1. run CMake's configuration step (The big "Configuration" button in the center-left of the screen), targeting Win32
+	2. run CMake's generation step (The big "Generate" button in the center-left of the screen)
+	3. open the newly created solution (the big "Open Project" button, can do it for you so you don't have to hunt for the solution on your file system)
 1. Create your project inside SimpleRenderEngineProject
 	1. Create a new folder inside the SimpleRenderEngineProject repository and copy the `data` folder,
 	   the `CMakeLists.txt` file (replace `<Project_Name>` in the file with your project name)
