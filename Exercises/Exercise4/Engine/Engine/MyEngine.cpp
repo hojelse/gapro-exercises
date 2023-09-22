@@ -30,7 +30,7 @@ namespace MyEngine {
 	}
 
 	void Engine::ProcessEvents(SDL_Event& event) {
-		//_root.KeyEvent(event);
+		_root->KeyEvent(event);
 	}
 
 	void Engine::Update(float deltaTime) {
