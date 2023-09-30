@@ -57,7 +57,7 @@ namespace MyEngine {
 	GameObject* Engine::CreateGameObject(std::string name) {
 		auto ret = std::make_shared<GameObject>();
 		ret->_self = ret;
-		ret->_parent;
+		ret->_parent = _root;
 		ret->SetName(name);
 		_root->AddChild(ret);
 
