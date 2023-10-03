@@ -9,7 +9,7 @@ class GameEngine
 		std::chrono::time_point<std::chrono::steady_clock> frame_time_end = std::chrono::steady_clock::now();
 		std::chrono::duration<double> render_time_elapsed = std::chrono::duration<double>(1.0);
 		std::chrono::duration<double> frame_time_elapsed = std::chrono::duration<double>(1.0);
-		static constexpr int target_fps = 60;
+		static constexpr int target_fps = 120;
 
 	void Init()
 	{
