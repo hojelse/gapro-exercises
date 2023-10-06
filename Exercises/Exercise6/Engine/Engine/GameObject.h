@@ -42,9 +42,7 @@ namespace MyEngine {
 
 	public:
 		glm::mat4 DeserializeTransform(rapidjson::Value& transformData);
-		rapidjson::Value SerializeTransform(glm::mat4& transform);
 
 		glm::vec3 DeserializeVector(rapidjson::Value& vectorData);
-		rapidjson::Value SerializeVector(glm::vec3& vector);
 	};
 }
