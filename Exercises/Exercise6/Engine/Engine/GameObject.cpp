@@ -2,13 +2,14 @@
 
 #include "sre/RenderPass.hpp"
 #include <glm/glm.hpp>
+#include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/transform.hpp>
-#include <glm/gtx/matrix_decompose.hpp>
 
 #include "MyEngine.h"
 #include "Component.h"
 #include "ComponentFactory.h"
 #include "Logger.h"
+#include "ExtraMath.h"
 
 namespace MyEngine {
 	// public API
@@ -81,19 +82,71 @@ namespace MyEngine {
 		auto scl = DeserializeVector(transformData["scale"]);
 
 		return
-			glm::scale(scl) *
 			glm::translate(pos) *
-			glm::mat4_cast(glm::quat(glm::radians(rot)));
+			glm::mat4_cast(glm::quat(glm::radians(rot))) * 
+			glm::scale(scl);
 	}
 
 	glm::vec3 GameObject::DeserializeVector(rapidjson::Value& vectorData) {
 		assert(vectorData.IsArray() && "Trying to deserialize a vector from non-vector json value");
 		assert(vectorData.Size() == 3 && "Trying to deserialize a vector from vector json value that doesn't have 3 elements (only 3d vectors supported ATM)");
 
-		glm::vec3 ret;
+		glm::vec3 ret{};
 		for (int i = 0; i < vectorData.Size(); ++i)
 			ret[i] = vectorData[i].GetFloat();
 
 		return ret;
+	}
+
+	glm::vec3 GameObject::GetPosition() {
+		return transform[3];
+	}
+
+	glm::quat GameObject::GetRotation() {
+		const glm::vec3 scale = GetScale();
+		return glm::quat_cast(glm::mat3(
+			glm::vec3(transform[0]) / scale[0],
+			glm::vec3(transform[1]) / scale[1],
+			glm::vec3(transform[2]) / scale[2]));
+	}
+
+	glm::vec3 GameObject::GetEulerAngles() {
+		return glm::degrees(ToEulerSafe(GetRotation()));
+	}
+
+	glm::vec3 GameObject::GetScale() {
+		return glm::vec3{
+			glm::length(glm::vec3(transform[0])),
+			glm::length(glm::vec3(transform[1])),
+			glm::length(glm::vec3(transform[2]))
+		};
+	}
+
+	void GameObject::SetPosition(glm::vec3 position) {
+		transform[3][0] = position[0];
+		transform[3][1] = position[1];
+		transform[3][2] = position[2];
+	}
+
+	void GameObject::SetRotation(glm::quat rotation) {
+		transform =
+			glm::translate(GetPosition()) * 
+			glm::mat4_cast(rotation) * 
+			glm::scale(GetScale());
+	}
+
+	void GameObject::SetEulerAngles(glm::vec3 eulerAngles) {
+		SetRotation(ToQuaternionSafe(glm::radians(eulerAngles)));
+	}
+
+	void GameObject::SetScale(glm::vec3 scale) {
+		glm::vec3 currScale = GetScale();
+		currScale[0] = 1 / currScale[0];
+		currScale[1] = 1 / currScale[1];
+		currScale[2] = 1 / currScale[2];
+
+		// we first undo the current scale, then apply the new one
+		// (not pretty, but gets the job done)
+		transform = glm::scale(scale) * glm::scale(currScale) * transform;
 	}
 }
