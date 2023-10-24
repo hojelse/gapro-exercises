@@ -47,6 +47,30 @@
 					}
 				],
 				"children": []
+			},
+			{
+				"name": "layout",
+				"transform": {
+					"position": [0, 0, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "LEVEL_LAYOUT",
+						"serializedData": {
+							"dims": [5, 7],
+							"layout": [
+								[1, 1, 1, 1, 1, 1, 1],
+								[1, 0, 0, 0, 0, 0, 1],
+								[1, 0, 0, 0, 0, 0, 1],
+								[1, 0, 0, 0, 0, 0, 1],
+								[1, 1, 1, 1, 1, 1, 1]
+							]
+						}
+					}
+				],
+				"children": []
 			}
 		]
 	}
