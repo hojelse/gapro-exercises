@@ -27,7 +27,7 @@
 						"typeId": "CONTROLLER",
 						"serializedData": {
 							"movSpeed": 5,
-							"rotSpeed": 2
+							"rotSpeed": 2.5
 						}
 					}
 				],
