@@ -441,3 +441,7 @@ FodyWeavers.xsd
 *.sln.iml
 
 .idea
+
+CMakeFiles
+Makefile
+cmake_install.cmake
