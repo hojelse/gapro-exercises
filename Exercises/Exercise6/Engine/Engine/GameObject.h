@@ -7,6 +7,7 @@
 #include <string>
 
 #include "sre/SpriteBatch.hpp"
+#include "sre/RenderPass.hpp"
 
 #include "rapidjson/document.h"
 
