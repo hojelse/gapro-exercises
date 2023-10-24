@@ -1,0 +1,18 @@
+dist: trusty
+sudo: false
+language: cpp
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-5
+      - libegl1-mesa-dev
+      - libglew-dev
+      - libsdl2-dev
+      - libsdl2-image-dev
+
+script:
+  - CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake -DUSE_SRE_TEST_AND_UTILS=ON .
+  - cmake --build . -- -j2
