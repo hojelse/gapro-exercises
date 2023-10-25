@@ -15,26 +15,40 @@ bool key_down_s = false;
 bool key_down_d = false;
 bool key_down_j = false;
 bool key_down_k = false;
+bool key_down_i = false;
+bool key_down_l = false;
+bool key_down_q = false;
+bool key_down_e = false;
 
 void ComponentController::Update(float deltaTime) {
 	auto delta_z = 0.0f;
-	auto delta_x = 0.0f;
 	if (key_down_w) delta_z -= 1.0f;
 	if (key_down_s) delta_z += 1.0f;
+	auto delta_x = 0.0f;
 	if (key_down_a) delta_x -= 1.0f;
 	if (key_down_d) delta_x += 1.0f;
+	auto delta_y = 0.0f;
+	if (key_down_q) delta_y -= 1.0f;
+	if (key_down_e) delta_y += 1.0f;
 
-	auto delta_rot = 0.0f;
-	if (key_down_j) delta_rot += 1.0f;
-	if (key_down_k) delta_rot -= 1.0f;
+	auto delta_rot_horizontal = 0.0f;
+	if (key_down_j) delta_rot_horizontal += 1.0f;
+	if (key_down_l) delta_rot_horizontal -= 1.0f;
+	auto delta_rot_vertical = 0.0f;
+	// if (key_down_i) delta_rot_vertical -= 1.0f;
+	// if (key_down_k) delta_rot_vertical += 1.0f;
 
 	GetGameObject()->transform = glm::translate(
 		glm::rotate(
-			GetGameObject()->transform,
-			delta_rot * deltaTime * rot_speed,
-			glm::vec3(0, 1, 0)
+			glm::rotate(
+				GetGameObject()->transform,
+				delta_rot_horizontal * deltaTime * rot_speed,
+				glm::vec3(0, 1, 0)
+			),
+			delta_rot_vertical * deltaTime * rot_speed,
+			glm::vec3(1, 0, 0)
 		),
-		glm::vec3(delta_x * deltaTime * mov_speed, 0, delta_z * deltaTime * mov_speed)
+		glm::vec3(delta_x * deltaTime * mov_speed, delta_y * deltaTime * mov_speed, delta_z * deltaTime * mov_speed)
 	);
 }
 
@@ -42,24 +56,36 @@ void ComponentController::KeyEvent(SDL_Event& event)
 {
 	switch (event.key.keysym.sym)
 	{
-	case SDLK_w:
-		key_down_w = event.type == SDL_KEYDOWN;
-		break;
-	case SDLK_a:
-		key_down_a = event.type == SDL_KEYDOWN;
-		break;
-	case SDLK_s:
-		key_down_s = event.type == SDL_KEYDOWN;
-		break;
-	case SDLK_d:
-		key_down_d = event.type == SDL_KEYDOWN;
-		break;
-	case SDLK_j:
-		key_down_j = event.type == SDL_KEYDOWN;
-		break;
-	case SDLK_k:
-		key_down_k = event.type == SDL_KEYDOWN;
-		break;
+		case SDLK_w:
+			key_down_w = event.type == SDL_KEYDOWN;
+			break;
+		case SDLK_a:
+			key_down_a = event.type == SDL_KEYDOWN;
+			break;
+		case SDLK_s:
+			key_down_s = event.type == SDL_KEYDOWN;
+			break;
+		case SDLK_d:
+			key_down_d = event.type == SDL_KEYDOWN;
+			break;
+		case SDLK_i:
+			key_down_i = event.type == SDL_KEYDOWN;
+			break;
+		case SDLK_j:
+			key_down_j = event.type == SDL_KEYDOWN;
+			break;
+		case SDLK_k:
+			key_down_k = event.type == SDL_KEYDOWN;
+			break;
+		case SDLK_l:
+			key_down_l = event.type == SDL_KEYDOWN;
+			break;
+		case SDLK_q:
+			key_down_q = event.type == SDL_KEYDOWN;
+			break;
+		case SDLK_e:
+			key_down_e = event.type == SDL_KEYDOWN;
+			break;
 	}
 }
 
