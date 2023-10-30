@@ -191,5 +191,5 @@ add_subdirectory(project)
 endif(USE_SRE_PROJECT_EXAMPLES)
 
 add_subdirectory(Asteroids)
-add_subdirectory(Wolfenstein)
+add_subdirectory(GamesUsingExample6Engine)
 

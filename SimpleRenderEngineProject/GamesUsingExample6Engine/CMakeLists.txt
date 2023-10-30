@@ -10,4 +10,4 @@ file(COPY media DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(Engine)
 add_subdirectory(Wolfenstein)
-add_subdirectory(PlateupGame)
+add_subdirectory(NotPlateup)
