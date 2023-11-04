@@ -42,9 +42,18 @@ namespace MyEngine {
 
 	public:
 		glm::mat4 DeserializeTransform(rapidjson::Value& transformData);
-		rapidjson::Value SerializeTransform(glm::mat4& transform);
 
 		glm::vec3 DeserializeVector(rapidjson::Value& vectorData);
-		rapidjson::Value SerializeVector(glm::vec3& vector);
+
+		// transform
+		// (it would be a good idea to move this to its own class, so that the GameObject doesn't need to import all the extra glm classes)
+		glm::vec3 GetPosition();
+		glm::quat GetRotation();
+		glm::vec3 GetEulerAngles();
+		glm::vec3 GetScale();
+		void SetPosition(glm::vec3 position);
+		void SetRotation(glm::quat rotation);
+		void SetEulerAngles(glm::vec3 eulerAngles);
+		void SetScale(glm::vec3 scale);
 	};
 }
