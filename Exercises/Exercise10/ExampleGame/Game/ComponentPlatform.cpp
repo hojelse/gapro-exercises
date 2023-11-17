@@ -26,6 +26,7 @@ void ComponentPlatform::Init(rapidjson::Value& serializedData) {
 	for (int i = -halfSize; i < halfSize; ++i) {
 		auto sprite = GetGameObject().lock()->CreateComponent<ComponentRendererSprite>().lock();
 		sprite->SetSprite("platformer-art-deluxe", "1.png");
-		sprite->SetSpritePosition(offset * _tileSize * (float)i);
+		glm::vec2 pos = offset * _tileSize * (float)i;
+		sprite->SetSpritePosition(pos);
 	}
 }
