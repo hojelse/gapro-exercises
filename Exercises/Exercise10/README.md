@@ -21,8 +21,8 @@ Add submission folder as subdirectory in SimpleRenderEngineProject/CMakeLists.tx
 # 10.1 Platform easing functions
 Add at least two different non-linear easing functions in `ComponentPlatformMove`.
 
-# 10.2 NPC movement using Quadratic Bezier curves
-Replace the linear interpolation in  `ComponentSpline::Update` with a Quadratic Bezier. The given `_points` should be the control points of the curve, but you will need to handle the tangent points yourself. Two possible options are:
+# 10.2 NPC movement using Bezier curves
+Replace the linear interpolation in  `ComponentSpline::Update` with a Bezier. The given `_points` should be the control points of the curve, but you will need to handle the tangent points yourself. Two possible options are:
 - add another array of points
 - compute them parametrically from the control points
 
