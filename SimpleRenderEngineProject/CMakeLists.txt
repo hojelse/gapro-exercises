@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
+set(CMAKE_OSX_ARCHITECTURES "x86_64")
 project(SimpleRenderEngineProject CXX)
 
 set( CMAKE_VERBOSE_MAKEFILE on )
@@ -192,4 +193,5 @@ endif(USE_SRE_PROJECT_EXAMPLES)
 
 add_subdirectory(Asteroids)
 add_subdirectory(GamesUsingExample6Engine)
+add_subdirectory(Exercise8)
 

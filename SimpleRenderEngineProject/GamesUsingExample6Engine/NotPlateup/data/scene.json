@@ -29,9 +29,9 @@
 			{
 				"name": "player",
 				"transform": {
-					"position": [0, 0, 0],
+					"position": [1, 0, 1],
 					"rotation": [0, 0, 0],
-					"scale": [1, 1, 1]
+					"scale": [0.5, 1, 0.5]
 				},
 				"components": [
 					{
