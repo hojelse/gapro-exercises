@@ -13,4 +13,7 @@ private:
 	float mov_speed;
 	float rot_speed;
 	bool key_down_space = false;
+	std::weak_ptr<ComponentPhysicsBody> _body;
+	float _movSpeed = 2;
+	float _jumpStrength = 5;
 };

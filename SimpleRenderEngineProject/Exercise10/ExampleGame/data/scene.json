@@ -1,0 +1,287 @@
+{
+	"root": {
+		"name": "_root",
+		"transform": {
+			"position": [0, 0, 0],
+			"rotation": [0, 0, 0],
+			"scale": [1, 1, 1]
+		},
+		"components": [],
+		"children": [
+			{
+				"name": "Floor",
+				"transform": {
+					"position": [504, 84, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "PLATFORM_BUILDER",
+						"serializedData": {
+							"size": 51,
+							"type": 0
+						}
+					}
+				]
+			},
+			{
+				"name": "Ceiling",
+				"transform": {
+					"position": [504, 504, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "PLATFORM_BUILDER",
+						"serializedData": {
+							"size": 51,
+							"type": 0
+						}
+					}
+				]
+			},
+			{
+				"name": "Wall0",
+				"transform": {
+					"position": [-21, 252, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "PLATFORM_BUILDER",
+						"serializedData": {
+							"size": 15,
+							"type": 1
+						}
+					}
+				]
+			},
+			{
+				"name": "Wall1",
+				"transform": {
+					"position": [1050, 252, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "PLATFORM_BUILDER",
+						"serializedData": {
+							"size": 15,
+							"type": 1
+						}
+					}
+				]
+			},
+			{
+				"name": "Platform0",
+				"transform": {
+					"position": [105, 252, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "PLATFORM_BUILDER",
+						"serializedData": {
+							"size": 5,
+							"type": 0
+						}
+					},
+					{
+						"typeId": "PLATFORM_MOVER",
+						"serializedData": {
+							"yoyo": true,
+							"duration": 1.0,
+							"start": [0, 0, 0],
+							"end": [0, -63, 0],
+							"easing": 1
+						}
+					}
+				]
+			},
+			{
+				"name": "Platform1",
+				"transform": {
+					"position": [315, 147, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "PLATFORM_BUILDER",
+						"serializedData": {
+							"size": 5,
+							"type": 0
+						}
+					}
+				]
+			},
+			{
+				"name": "Platform2",
+				"transform": {
+					"position": [525, 252, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "PLATFORM_BUILDER",
+						"serializedData": {
+							"size": 5,
+							"type": 0
+						}
+					}
+				]
+			},
+			{
+				"name": "Platform3",
+				"transform": {
+					"position": [725, 147, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "PLATFORM_BUILDER",
+						"serializedData": {
+							"size": 5,
+							"type": 0
+						}
+					}
+				]
+			},
+			{
+				"name": "Platform4",
+				"transform": {
+					"position": [945, 252, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "PLATFORM_BUILDER",
+						"serializedData": {
+							"size": 5,
+							"type": 0
+						}
+					}
+				]
+			},
+			{
+				"name": "Bird0",
+				"transform": {
+					"position": [21, 315, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "SPRITE_RENDERER",
+						"serializedData":
+						{
+							"atlas": "platformer-art-deluxe",
+							"sprite": "433.png"	
+						}
+					},
+					{
+						"typeId": "SPLINE",
+						"serializedData":
+						{
+							"speed": 2,
+							"points": [
+								[0,    0, 0],
+								[63,  63, 0],
+								[126,  0, 0],
+								[189, 63, 0],
+								[252,  0, 0]
+							]
+						}
+					}
+				]
+			},
+			{
+				"name": "Bird1",
+				"transform": {
+					"position": [147, 399, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "SPRITE_RENDERER",
+						"serializedData":
+						{
+							"atlas": "platformer-art-deluxe",
+							"sprite": "433.png"	
+						}
+					}
+				]
+			},
+			{
+				"name": "Player",
+				"transform": {
+					"position": [100, 300, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "SPRITE_RENDERER",
+						"serializedData":
+						{
+							"atlas": "platformer-art-deluxe",
+							"sprite": "19.png"	
+						}
+					},
+					{
+						"typeId": "RIGIDBODY",
+						"serializedData": {
+							"bodyType": 2,
+							"isSensor": false,
+							"size": [10, 10]
+						}
+					},
+					{
+						"typeId": "CONTROLLER",
+						"serializedData": {
+							"movSpeed": 1,
+							"jumpStrength": 1
+						}
+					}
+				],
+				"children": []
+			},
+			{
+				"name": "camera",
+				"transform": {
+					"position": [150, 300, 0],
+					"rotation": [0, 0, 0],
+					"scale": [1, 1, 1]
+				},
+				"components": [
+					{
+						"typeId": "CAMERA",
+						"serializedData": {
+							"projectionType": 0,
+							"projectionParams": [300,-1,1]
+						}
+					},
+					{
+						"typeId": "FOLLOW_TARGET",
+						"serializedData": {
+							"target": "Player",
+							"offsetX": 0,
+							"lockX": false,
+							"lockY": true
+						}
+					}
+				],
+				"children": []
+			}
+		]
+	}
+}

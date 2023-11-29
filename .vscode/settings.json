@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"ratio": "cpp",
-		"ostream": "cpp"
+		"ostream": "cpp",
+		"cmath": "cpp"
 	}
 }

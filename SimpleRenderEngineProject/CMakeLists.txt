@@ -194,4 +194,5 @@ endif(USE_SRE_PROJECT_EXAMPLES)
 add_subdirectory(Asteroids)
 add_subdirectory(GamesUsingExample6Engine)
 add_subdirectory(Exercise8)
+add_subdirectory(Exercise10)
 
